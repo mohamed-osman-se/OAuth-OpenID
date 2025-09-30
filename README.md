@@ -45,4 +45,4 @@ cd OAuth-OpenID
 dotnet run
 ```
 
-## Not Forget To Configure Your Secrets In appsettings.json
+## Don't Forget To Configure Your Secrets In appsettings.json
