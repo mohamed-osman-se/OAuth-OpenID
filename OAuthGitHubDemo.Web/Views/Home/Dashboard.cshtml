@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Dashboard";
+    var userName = User.FindFirst("name")?.Value ?? User.Identity?.Name;
+    var userEmail = User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value;
+    var provider = User.FindFirst("provider")?.Value;
+}
+
+<div class="text-center">
+    <h2>Welcome, @userName 👋</h2>
+    <p class="lead">You are logged in successfully with <strong>@provider</strong>.</p>
+    <p class="text-muted">Email: @userEmail</p>
+
+    <a class="btn btn-success mt-3" asp-controller="GitHub" asp-action="Repos">
+        Import Your GitHub Repos
+    </a>
+
+    <form asp-controller="Account" asp-action="Logout" method="post" class="mt-3">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+</div>

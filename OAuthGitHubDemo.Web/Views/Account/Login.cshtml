@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4 text-center">
+
+        <h2 class="mb-4">Welcome Back</h2>
+        <p class="text-muted mb-4">Login securely using your Google account</p>
+
+        <!-- Google -->
+        <a href="@Url.Action("GoogleLogin", "Account")" 
+           class="btn btn-light border w-100 d-flex align-items-center justify-content-center shadow-sm" 
+           style="gap:10px;">
+           
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" 
+                 alt="Google" width="20" height="20" />
+            <span>Continue with Google</span>
+        </a>
+
+        @if (!string.IsNullOrEmpty(ViewBag.Error))
+        {
+            <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+        }
+    </div>
+</div>
